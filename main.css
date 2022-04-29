@@ -1,0 +1,43 @@
+
+.frame-container{
+  background-color:#BAD3FF;
+  width:700px;
+  height:350px;
+  padding:70px 50px 50px 50px;
+  box-sizing: border-box;
+  position:relative;
+}
+
+#counter{
+  background-color: black;
+  font-family: Share Tech Mono,monospace;
+  color: #C2EEFF;
+  text-shadow: 0 0 20px #0aafe6;
+  text-align: center;
+  font-size: 100px;
+  width:100%;
+  box-sizing: border-box;
+  position:relative;
+}
+
+p{
+  margin:0;
+  padding:20px;
+}
+
+.btns{
+  width:100%;
+  padding: 10px;
+  display:inline-block;
+  box-sizing: border-box;
+}
+
+.btn{
+  padding:20px 50px;
+  display: inline-block;
+  margin:20px;
+}
+
+#stop,#reset{
+  width:146.47px;
+}
