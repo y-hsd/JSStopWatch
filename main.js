@@ -9,22 +9,23 @@ $(document).ready(function(){
    
    //グローバル変数
    let startTime=0;
-   let elapsedTime;
+   let elapsedTime=0;
    let timeToadd=0;
    let ID;
-
+  
    
   function updateTimeText(){
-    const now = new Date(new Date() - startTime + elapsedTime + timeToadd);
-    const m = now.getMinutes().toString().padStart(2,"0");
-    const s = now.getSeconds().toString().padStart(2,"0");
-    const ms =now.getMilliseconds().toString().padStart(3,"0");
+    let m = Math.floor(elapsedTime / 60000);
+    m= m.toString().padStart(2,"0");
+    let s = Math.floor((elapsedTime/1000)%60);
+    s= s.toString().padStart(2,"0");
+    let ms = Math.floor(elapsedTime%1000);
+    ms = ms.toString().padStart(3,"0");
     counter.textContent= m + ":" + s + ":" + ms;
   }
     
   function countUp(){
-    const now = new Date();
-    elapsedTime = now-startTime+timeToadd;
+    elapsedTime = new Date().getTime()-startTime+timeToadd;
     updateTimeText();
   }
   
@@ -37,7 +38,7 @@ $(document).ready(function(){
     //resetbtnを押せないようにする
     resetbtn.setAttribute("disabled",true);
     //スタート押下時の時刻を取得
-    startTime = new Date();
+    startTime = new Date().getTime();
     //m秒ごとにカウントアップを繰り返す
     ID=setInterval(countUp,10);
   },false);
@@ -50,7 +51,7 @@ $(document).ready(function(){
     resetbtn.removeAttribute("disabled");
     //stopbtnを押すまでの経過時間をtimeToaddに代入。
     //初回startbtn押下時は初期値０、2回目以降代入された値がupdateTimeText関数で加算される。
-    timeToadd += new Date() - startTime;
+    timeToadd += new Date().getTime() - startTime;
   },false);
     
   
